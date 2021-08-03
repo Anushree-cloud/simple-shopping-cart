@@ -13,7 +13,7 @@ export default ({ goToSuccessPage, clearAllCartItems }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        if(input.inValid) {
+        if(input.isValid) {
             console.log(input.inValid)
             clearAllCartItems()
             goToSuccessPage()
@@ -42,12 +42,13 @@ export default ({ goToSuccessPage, clearAllCartItems }) => {
                 break;
         }
 
-        input.isValid = (input.error.fname !== "" && input.error.lname !== "" && input.error.email !== "" && input.error.phone !== "") ? true : false
+        const isValid = (isError.fname === "" && isError.lname === "" && isError.email === "" && isError.phn === "") ? true : false
 
-        setInput({...input, data : {
-            ...input,
+        setInput({data : {
+            ...input.data,
             [name] : value }, 
-            error : isError
+            error : isError,
+            isValid
         })
     }
 
