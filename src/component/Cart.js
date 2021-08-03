@@ -1,5 +1,4 @@
 import { BiLike } from 'react-icons/bi'
-import { Success } from './Success'
 
 export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
     const grandTotal = cart.reduce((acc, item) => {
