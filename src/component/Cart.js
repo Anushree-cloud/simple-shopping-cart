@@ -1,7 +1,7 @@
 import { BiLike } from 'react-icons/bi'
 import { Success } from './Success'
 
-export default ({ cart, goToListingPage, onRemove }) => {
+export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
     const grandTotal = cart.reduce((acc, item) => {
       return acc + item.price * item.qty;
     }, 0);
@@ -61,7 +61,7 @@ export default ({ cart, goToListingPage, onRemove }) => {
   
             <div>
               <h3>Grand total: ${grandTotal}</h3>
-              <button className="co-btn">Check out <BiLike /></button>
+              <button onClick={goToCheckoutPage} className="co-btn">Check out <BiLike /></button>
             </div>
           </>
         ) : (

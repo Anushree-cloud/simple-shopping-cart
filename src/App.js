@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ProductListing from "./component/ProductList";
 import Cart from "./component/Cart";
+import Checkout from "./component/Checkout";
+import Success from "./component/Success";
 
 const products = [
   {
@@ -22,8 +24,8 @@ const products = [
 
 export default function App() {
   const [cart, setCart] = useState([]);
-  const [currentPage, setCurrentPage] = useState([])
-  const [isCartPage, setIsCartPage] = useState(false);
+  const [currentPage, setCurrentPage] = useState("listing")
+  // const [isCartPage, setIsCartPage] = useState(false);
 
   function addToCart(productId) {
     let cartItem = {}; ///ekhane
@@ -54,19 +56,16 @@ export default function App() {
     setCart([...newCartArray]);
   }
 
-  function togglePage() {
-    setIsCartPage(!isCartPage);
-  }
+  // function togglePage() {
+  //   setIsCartPage(!isCartPage);
+  // }
 
   function removeCartItem(productId) {
     setCart(cart.filter((cartArrayItem) => cartArrayItem.id !== productId));
   }
 
-  if(isCartPage){
-    setCurrentPage("cart")
-  }
-  else{
-    setCurrentPage("listing")
+  function goToPage (pageName) {
+    setCurrentPage(pageName)
   }
 
   return (
@@ -76,7 +75,8 @@ export default function App() {
         currentPage === "cart" && 
         <Cart
           cart={cart}
-          goToListingPage={togglePage}
+          goToListingPage={() => goToPage("listing")}
+          goToCheckoutPage={() => goToPage("checkout")}
           onRemove={removeCartItem}
         />
       }
@@ -86,31 +86,21 @@ export default function App() {
         <ProductListing
           products={products}
           addToCart={addToCart}
-          goToCartPage={togglePage}
+          goToCartPage={() => goToPage("cart")}
           cartLength={cart.length}
         />
+      }
+
+      {
+        currentPage === "checkout" && 
+        <Checkout goToSuccessPage={() => goToPage("success")} />
+      }
+      {
+        currentPage === "success" && 
+        <Success goToListingPage={() => goToPage("listing")} />
       }
 
     </>
   );
 }
 
-
-
-
-
-
-{/* {isCartPage ? (
-        <Cart
-          cart={cart}
-          goToListingPage={togglePage}
-          onRemove={removeCartItem}
-        />
-      ) : (
-        <ProductListing
-          products={products}
-          addToCart={addToCart}
-          goToCartPage={togglePage}
-          cartLength={cart.length}
-        />
-      )} */}
