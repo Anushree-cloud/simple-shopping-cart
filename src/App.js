@@ -99,7 +99,7 @@ export default function App() {
 
       {
         currentPage === "checkout" && 
-        <Checkout goToSuccessPage={() => goToPage("success")} />
+        <Checkout goToSuccessPage={() => goToPage("success")} clearAllCartItems={clearAllCartItems} />
       }
       {
         currentPage === "success" && 

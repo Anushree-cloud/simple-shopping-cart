@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default ({ goToSuccessPage }) => {
+export default ({ goToSuccessPage, clearAllCartItems }) => {
     const [input, setInput] = useState({
         error: {
             fname: "",
@@ -13,7 +13,11 @@ export default ({ goToSuccessPage }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        input.inValid ? goToSuccessPage() : alert('Please fill all the fields first') 
+        if(input.inValid) {
+            console.log(input.inValid)
+            clearAllCartItems()
+            goToSuccessPage()
+        }
     }
 
     const inputHandling = (event) => {
@@ -40,7 +44,11 @@ export default ({ goToSuccessPage }) => {
 
         input.isValid = (input.error.fname !== "" && input.error.lname !== "" && input.error.email !== "" && input.error.phone !== "") ? true : false
 
-        setInput({...input, [name] : value, error : isError})
+        setInput({...input, data : {
+            ...input,
+            [name] : value }, 
+            error : isError
+        })
     }
 
     return (
