@@ -8,13 +8,14 @@ export default ({ goToSuccessPage, clearAllCartItems }) => {
             phn: "",
             email: "", 
         },
+        data: {},
         isValid: false
     })
 
     const submitHandler = (e) => {
         e.preventDefault()
         if(input.isValid) {
-            console.log(input.inValid)
+            console.log(input.isValid)
             clearAllCartItems()
             goToSuccessPage()
         }
@@ -46,7 +47,8 @@ export default ({ goToSuccessPage, clearAllCartItems }) => {
 
         setInput({data : {
             ...input.data,
-            [name] : value }, 
+            [name] : value 
+            }, 
             error : isError,
             isValid
         })
