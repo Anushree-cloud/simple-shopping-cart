@@ -7,12 +7,13 @@ export default ({ goToSuccessPage }) => {
             lname: "",
             phn: "",
             email: "", 
-        }
+        },
+        isValid: false
     })
 
     const submitHandler = (e) => {
         e.preventDefault()
-        alert('Product(s) Purchased')
+        input.inValid ? goToSuccessPage() : alert('Please fill all the fields first') 
     }
 
     const inputHandling = (event) => {
@@ -36,6 +37,8 @@ export default ({ goToSuccessPage }) => {
                 isError.phn = validatePhn.test(value) ? "" : "Invalid Phone No."
                 break;
         }
+
+        input.isValid = (input.error.fname !== "" && input.error.lname !== "" && input.error.email !== "" && input.error.phone !== "") ? true : false
 
         setInput({...input, [name] : value, error : isError})
     }
@@ -68,7 +71,7 @@ export default ({ goToSuccessPage }) => {
                 <label htmlFor="address">Shipping Address</label>
                 <textarea  name="address" className="address" placeholder="Eg. 177A Bleecker Street, New York City, NY 10012-1406" />
             </div>
-            <button type='submit' onClick={goToSuccessPage}>Place Order</button>
+            <button type='submit'>Place Order</button>
         </form>
     )
 }

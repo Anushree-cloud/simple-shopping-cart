@@ -57,10 +57,18 @@ export default function App() {
   }
 
 
+  //clear all cart-items
+  function clearAllCartItems() {
+    setCart([])
+  }
+
+  //remove cart-items
   function removeCartItem(productId) {
     setCart(cart.filter((cartArrayItem) => cartArrayItem.id !== productId));
   }
 
+
+  //traverse between pages
   function goToPage (pageName) {
     setCurrentPage(pageName)
   }
@@ -73,10 +81,8 @@ export default function App() {
         <Cart
           cart={cart}
           goToListingPage={() => goToPage("listing")}
-          goToCheckoutPage={() => {
-            goToPage("checkout")
-            cart.splice(0, cart.length)
-          }}
+          goToCheckoutPage={() => goToPage("checkout")}
+          clearAllCartItems={clearAllCartItems}
           onRemove={removeCartItem}
         />
       }
