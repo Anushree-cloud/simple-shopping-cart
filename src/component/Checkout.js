@@ -10,7 +10,7 @@ export default ({ goToSuccessPage }) => {
         }
     })
 
-    const onSubmitHandler = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault()
         alert('Product(s) Purchased')
     }
@@ -41,7 +41,7 @@ export default ({ goToSuccessPage }) => {
     }
 
     return (
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={submitHandler}>
             <div>
                 <div>
                     <label htmlFor="fname">First Name</label>
@@ -68,7 +68,7 @@ export default ({ goToSuccessPage }) => {
                 <label htmlFor="address">Shipping Address</label>
                 <textarea  name="address" className="address" placeholder="Eg. 177A Bleecker Street, New York City, NY 10012-1406" />
             </div>
-            <button onClick={goToSuccessPage}>Place Order</button>
+            <button type='submit' onClick={goToSuccessPage}>Place Order</button>
         </form>
     )
 }

@@ -56,9 +56,6 @@ export default function App() {
     setCart([...newCartArray]);
   }
 
-  // function togglePage() {
-  //   setIsCartPage(!isCartPage);
-  // }
 
   function removeCartItem(productId) {
     setCart(cart.filter((cartArrayItem) => cartArrayItem.id !== productId));
@@ -76,7 +73,10 @@ export default function App() {
         <Cart
           cart={cart}
           goToListingPage={() => goToPage("listing")}
-          goToCheckoutPage={() => goToPage("checkout")}
+          goToCheckoutPage={() => {
+            goToPage("checkout")
+            cart.splice(0, cart.length)
+          }}
           onRemove={removeCartItem}
         />
       }
