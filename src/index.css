@@ -1,131 +1,276 @@
+/* Content Table: 
+  body
+  App
+  Common Btn
+  Container
+  CartButton.js Styles
+  ProductListing.js Styles
+  Cart.js Styles
+  Checkout.js Styles
+  Success.js Styles
+------------------------------------------------------------------------------------------------ */
+
+
+/* body */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 97vw;
+  background: url('https://media.slidesgo.com/storage/3390111/conversions/38-virtual-classroom-kit-thumb.jpg') no-repeat fixed;
+  background-size: cover;
+  font-family: cursive;
 }
+/* -------------------------------------------------------------------------------------------- */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
+/* App */
 .App {
   font-family: sans-serif;
   text-align: center;
 }
+/* ------------------------------------------------------------------------------------------- */
 
-.card-container {
+
+/* Common btn */
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+}
+/* ------------------------------------------------------------------------------------------ */
+
+
+/* Container */
+.container {
+  padding:10px;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+/* ----------------------------------------------------------------------------------------- */
+
+
+/* CartButton.js Styles */
+.cart-btn {
+  width: 10vw;
+  margin-right: 30px;
+  color: #fff;
+  border: 1px solid yellow;
+}
+/* ---------------------------------------------------------------------------------------- */
+
+
+/* ProductListing.js Styles */
+.btn-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 5vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 100.28%;
+  background-color: rgb(255, 117, 117);
+  height: 7vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
-
+.btn-container p {
+  font-size: 35px;
+  margin: 0px 0px 0px 5px;
+  color: navajowhite;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-shadow: 0px 0px 2px black;
+}
+.logo-icon{
+  margin-top: 10px !important;
+  font-size: 50px !important;
+}
+.card-container {
+  display: flex;
+  margin: 5vh 3vw 5vh 5vw;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  width: 18rem;
+  margin: 10px;
+  width: 18rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(white 60%, rgb(250, 173, 173));
+}
+.card-img {
+  height: 200px;
+  padding: 10px;
+}
 .card-body {
-  padding: 30px;
+  padding: 0 30px 30px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-  margin: 5px;
-  width: 18rem;
-  border-radius: 20px;
+.card-body h4 {
+  margin: 0;
 }
-
-.cart-item {
-  border: 1px solid black;
-  padding: 2px;
-  margin-top: 5px;
-}
-
-.cart-noItem {
+.card-body p {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  width: 18vw;
   text-align: center;
-  color: #555555;
-  margin-top: 10vh;
-  font-size: 50px;
+  padding: 5px;
 }
+.add-btn {
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+  width: 19vw;
+}
+/* ---------------------------------------------------------------------------------------- */
 
+
+/* Cart.js Styles */
+.back-btn {
+  background-color: red;
+  color: white;
+}
 .table {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0px 0px 20px;
 }
-
+.table tr {
+  background-color:rgb(255, 162, 162);
+}
+.table tr:nth-child(even) {
+  background-color: #ff6262;
+}
 .table th{
   font-weight: bolder;
   color: white;
   background-color: black;
 }
-
 .table td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
   text-align: center;
 }
-
-.table tr:nth-child(even) {
-  background-color: #dddddd;
+.cart-item {
+  border: 1px solid black;
+  padding: 2px;
+  margin-top: 5px;
 }
-
-.cart-btn {
-  float: right;
-  margin-right: 30px;
-  color: #fff;
-  border-radius: 5px;
-  border: 1px solid yellow;
-  padding: 5px;
+.cart-noItem {
+  text-align: center;
+  color: #555555;
+  margin-top: 10vh;
+  font-size: 50px;
 }
-
-.btn-container {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  padding: 10px;
-  width: 100%;
-  background-color: #000;
-  height: 5vh;
+.dlt-btn {
+  background-color: red;
+  color: white;
+  width: 50px;
 }
-
-.container {
-  padding:10px;
-}
-
 .co-btn {
   background-color: green;
   color: white;
-  border-radius: 8px;
-  padding: 5px;
 }
+/* ---------------------------------------------------------------------------------------- */
 
-.dlt-btn {
-  padding: 5px;
-  border-radius: 8px;
-  background-color: red;
-  color: white;
+
+/* Checkout.js Styles */
+.form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.add-btn {
-  padding: 5px;
-  border-radius: 8px;
-  background-color: blueviolet;
+.form-control h1 {
+  margin: 0px;
+  background-color: black;
+  border-radius: 5px;
   color: white;
+  width: 48vw;
+  padding: 10px 0px;
+}
+.form-control p{
+  font-style: italic;
+  color: red;
+  margin: 5px;
+}
+.user-name {
+  display: flex;
+}
+.form-element {
+  background-color:crimson;
+  color: #dddddd;
+  padding: 10px;
+}
+.label {
+  display: block;
+  text-align: left;
+  margin: 4px;
   font-weight: bold;
-
+  color: #fff;
+  text-shadow: 0px 0px 5px black;
 }
-
-.card-body p {
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  width: 100%;
-  text-align: center;
-  padding: 5px;
+.form-input{
+  width: 20vw;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 4px;
+  border-style: solid;
 }
+.phn, .email, .address {
+  width: 43.8vw
+}
+.address {
+  height: 5vh;
+}
+.invalid-text {
+  text-align: start;
+  margin: 0 0 0 4px !important;
+  font-size: small;
+  color: rgb(255, 255, 255) !important;
+  text-shadow: 2px 0px 1px red;
+}
+.po-btn-container {
+  display: flex;
+}
+.po-btn {
+  margin: 10px 2px;
+  width: 23.9vw;
+  color: #fff;
+  font-weight: bolder;
+}
+.back-to-cart-btn {
+  background-color: red;
+}
+/* ---------------------------------------------------------------------------------------- */
+
+
+/* Success.js Styles */
+.success {
+  position: relative;
+  top: 30vh;
+}
+.success p {
+  font-size: 50px;
+  margin: 20px;
+  color:#555555
+}
+.success button {
+  background-color: blueviolet;
+  color: #fff;
+}
+/* ---------------------------------------------------------------------------------------- */
+
+
+
+
+

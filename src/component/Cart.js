@@ -1,4 +1,6 @@
-import { BiLike } from 'react-icons/bi'
+import { BiLike, BiSad } from 'react-icons/bi'
+import { FaHandPointLeft, FaRegTrashAlt } from 'react-icons/fa'
+
 
 export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
     const grandTotal = cart.reduce((acc, item) => {
@@ -7,8 +9,8 @@ export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
   
     return (
       <div className="container">
-        <h2>Cart</h2>
-        <button onClick={goToListingPage}>Back to listing</button>
+        <h2>My Cart</h2>
+        <button onClick={goToListingPage} className="btn back-btn"><FaHandPointLeft /> Back to listing</button>
         {cart.length !== 0 ? (
           <>
             <table className="table">
@@ -27,7 +29,7 @@ export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
                     <p>Subtotal</p>
                   </th>
                   <th>
-                    <p>Action</p>
+                    <p>Delete</p>
                   </th>
                 </tr>
               </thead>
@@ -48,8 +50,8 @@ export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
                         <p>${cartItem.qty * cartItem.price}</p>
                       </td>
                       <td>
-                        <button className="dlt-btn" onClick={() => onRemove(cartItem.id)}>
-                          Delete
+                        <button className="btn dlt-btn" onClick={() => onRemove(cartItem.id)}>
+                          <FaRegTrashAlt />
                         </button>
                       </td>
                     </tr>
@@ -60,12 +62,13 @@ export default ({ cart, goToListingPage, goToCheckoutPage, onRemove }) => {
   
             <div>
               <h3>Grand total: ${grandTotal}</h3>
-              <button onClick={goToCheckoutPage} className="co-btn">Check out <BiLike /></button>
+              <button onClick={goToCheckoutPage} className="btn co-btn">Check out <BiLike /></button>
             </div>
           </>
         ) : (
           <div className="cart-noItem">
             <p>Nothing to Show!</p>
+            <p><BiSad/></p>
           </div>
         )}
       </div>
